@@ -3,23 +3,23 @@ import Cors from '../middlewares/cors';
 import Morgan from '../middlewares/morgan';
 
 class Server {
-  public express: express.Application;
+  public app: express.Application;
 
   constructor() {
-    this.express = express();
+    this.app = express();
     this.connectMiddlewares();
   }
 
   private connectMiddlewares() {
-    this.express = Cors.init(this.express);
-    this.express = Morgan.init(this.express);
+    this.app = Cors.init(this.app);
+    this.app = Morgan.init(this.app);
   }
 
   public startListening() {
-    const host = 'localhost';
-    const port = 4000;
+    const host = process.env.HOST || 'localhost';
+    const port = process.env.PORT || 4000;
 
-    this.express.listen(port, () => {
+    this.app.listen(port, () => {
       console.log(
         '\x1b[33m%s\x1b[0m',
         `Server :: Running at 'http://${host}:${port}'`
