@@ -19,7 +19,18 @@ class Database {
 
   public connect() {
     const connectionString = this.build_connection();
-    return mongoose.connect(connectionString);
+    mongoose
+      .connect(connectionString)
+      .then(() => {
+        console.log(
+          '\x1b[33m%s\x1b[0m',
+          `DB :: Connected to 'mongodb://${this.host}:${this.port}'`
+        );
+      })
+      .catch((reason) => {
+        console.error('\x1b[31m%s\x1b[0m', 'Database connection failure');
+        console.error('\x1b[31m%s\x1b[0m', reason);
+      });
   }
 }
 

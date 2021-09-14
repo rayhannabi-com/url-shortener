@@ -1,6 +1,7 @@
 import express from 'express';
 import Cors from '../middlewares/cors';
 import Morgan from '../middlewares/morgan';
+import Routes from './routes';
 
 class Server {
   public app: express.Application;
@@ -8,11 +9,22 @@ class Server {
   constructor() {
     this.app = express();
     this.connectMiddlewares();
+    this.mountRoutes();
+    this.configure();
   }
 
   private connectMiddlewares() {
     this.app = Cors.init(this.app);
     this.app = Morgan.init(this.app);
+  }
+
+  private mountRoutes() {
+    this.app = Routes.mount(this.app);
+  }
+
+  private configure() {
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
   }
 
   public startListening() {
