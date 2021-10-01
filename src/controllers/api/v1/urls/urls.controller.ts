@@ -18,7 +18,7 @@ export class UrlsController {
           jsonResponse().body(url).send(res);
         } else {
           try {
-            url = new Shortener(req.body.url).create();
+            const url = new Shortener(req.body.url).create();
             await url.save();
             jsonResponse().body(url).send(res);
           } catch (err) {
