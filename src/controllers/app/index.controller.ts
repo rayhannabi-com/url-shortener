@@ -1,7 +1,6 @@
-import { Request, RequestHandler, response, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 import { param, validationResult } from 'express-validator';
 import Url from '../../models/api/v1/url.model';
-import { jsonResponse } from '../../models/common/response.model';
 
 export class AppController {
   public static root(req: Request, res: Response) {
