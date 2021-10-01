@@ -1,5 +1,5 @@
-import { Route } from '../../../models/route';
-import urlsRoot, { UrlsController } from '../controllers/urls';
+import { Route } from '../../../../models/common/route.model';
+import { UrlsController } from '../../../../controllers/api/v1/urls/index.controller';
 
 class UrlsRoutes extends Route {
   constructor() {
@@ -8,7 +8,6 @@ class UrlsRoutes extends Route {
 
   mountRoutes() {
     super.mountRoutes();
-    this.router.get('/', urlsRoot);
     this.router.post('/', UrlsController.create());
     this.router.get('/:id', UrlsController.find());
   }

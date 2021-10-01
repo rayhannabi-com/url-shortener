@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { IRoute } from '../interfaces/route';
+import { IRoute } from '../../interfaces/common/route.interface';
 
 export class Route implements IRoute {
   root: string;
