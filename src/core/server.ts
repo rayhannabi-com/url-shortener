@@ -23,6 +23,7 @@ class Server {
   }
 
   private configure() {
+    this.app.disable('x-powered-by');
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
   }

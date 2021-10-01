@@ -8,7 +8,7 @@ export class AppController {
   }
 
   public static redirect(): RequestHandler[] {
-    const validation = param('id').isLength({ min: 4, max: 8 });
+    const validation = param('id').isLength({ min: 4, max: 8 }).isAscii();
     return [validation, this.redirectHandler];
   }
 
@@ -17,9 +17,10 @@ export class AppController {
     if (errors.length > 0) {
       res.sendStatus(404);
     } else {
-      const identifier = req.params.id;
-      let urlObj = await Url.findOne({ identifier });
+      let urlObj = await Url.findOne({ identifier: req.params.id });
       if (urlObj) {
+        urlObj.hitCount += 1;
+        await urlObj.save();
         res.status(302).redirect(urlObj.url);
       } else {
         res.sendStatus(404);
