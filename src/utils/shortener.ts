@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
-import { IUrl } from '../../../../interfaces/api/v1/url.interface';
-import Url from '../../../../models/api/v1/url.model';
+import { IUrl } from '../api/v1/interfaces/url.interface';
+import Url from '../api/v1/models/url.model';
 
 const nanoidLength = 8;
 

@@ -1,5 +1,5 @@
-import { AppController } from '../../controllers/app/index.controller';
-import { Route } from '../../models/common/route.model';
+import { AppController } from '../controllers/index.controller';
+import { Route } from '../../common/models/route.model';
 
 class AppRoute extends Route {
   constructor() {

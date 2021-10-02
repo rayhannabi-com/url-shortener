@@ -1,5 +1,5 @@
-import { Route } from '../../../models/common/route.model';
-import { ApiController } from '../../../controllers/api/v1/index.controller';
+import { ApiController } from '../../../api/v1/controllers/index.controller';
+import { Route } from '../../../common/models/route.model';
 import urls from './urls/urls.routes';
 
 class ApiRoute extends Route {

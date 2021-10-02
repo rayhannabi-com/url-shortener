@@ -1,4 +1,4 @@
-import { IJSONResponse } from '../../interfaces/common/response.interface';
+import { IJSONResponse } from '../interfaces/response.interface';
 import { getReasonPhrase } from 'http-status-codes';
 import { Response } from 'express';
 

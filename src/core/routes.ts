@@ -1,7 +1,7 @@
 import { Application } from 'express';
-import { Route } from '../models/common/route.model';
-import apiRoute from '../routes/api/v1/index.route';
-import appRoute from '../routes/app/index.route';
+import { Route } from '../common/models/route.model';
+import apiRoute from '../api/v1/routes/index.route';
+import appRoute from '../app/routes/index.route';
 
 class Routes {
   public static mount(_express: Application): Application {

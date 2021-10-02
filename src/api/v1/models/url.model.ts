@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { IUrl } from '../../../interfaces/api/v1/url.interface';
+import { IUrl } from '../interfaces/url.interface';
 
 const UrlSchema: Schema = new Schema({
   identifier: { type: String, required: true, unique: true },
