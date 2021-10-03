@@ -1,5 +1,5 @@
-import mongoose, { Schema } from 'mongoose';
-import { IUrl } from '../interfaces/url.interface';
+import mongoose, { Schema } from 'mongoose'
+import { IUrl } from '../interfaces/url.interface'
 
 const UrlSchema: Schema = new Schema({
   identifier: { type: String, required: true, unique: true },
@@ -7,15 +7,15 @@ const UrlSchema: Schema = new Schema({
   shortUrl: { type: String, required: true },
   createdAt: { type: Date, required: true },
   hitCount: { type: Number, required: true }
-});
+})
 
 UrlSchema.methods.toJSON = function () {
-  var obj = this.toObject();
-  delete obj._id;
-  delete obj.__v;
-  return obj;
-};
+  var obj = this.toObject()
+  delete obj._id
+  delete obj.__v
+  return obj
+}
 
-const Url = mongoose.model<IUrl>('URL', UrlSchema);
+const Url = mongoose.model<IUrl>('URL', UrlSchema)
 
-export default Url;
+export default Url

@@ -1,16 +1,16 @@
-import { AppController } from '../controllers/index.controller';
-import { Route } from '../../common/models/route.model';
+import { AppController } from '../controllers/index.controller'
+import { Route } from '../../common/models/route.model'
 
 class AppRoute extends Route {
   constructor() {
-    super('/');
+    super('/')
   }
 
   mountRoutes() {
-    super.mountRoutes();
-    this.router.get('/', AppController.root);
-    this.router.get('/:id', AppController.redirect());
+    super.mountRoutes()
+    this.router.get('/', AppController.root)
+    this.router.get('/:id', AppController.redirect())
   }
 }
 
-export default new AppRoute();
+export default new AppRoute()

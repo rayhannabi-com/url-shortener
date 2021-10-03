@@ -1,3 +1,3 @@
-import app from './core/app';
+import app from './core/app'
 
-app.start();
+app.start()

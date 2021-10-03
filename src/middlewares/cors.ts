@@ -1,5 +1,5 @@
-import cors from 'cors';
-import { Application } from 'express';
+import cors from 'cors'
+import { Application } from 'express'
 
 class Cors {
   public static init(_express: Application): Application {
@@ -8,8 +8,8 @@ class Cors {
         origin: 'localhost',
         optionsSuccessStatus: 200
       })
-    );
+    )
   }
 }
 
-export default Cors;
+export default Cors
