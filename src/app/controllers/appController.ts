@@ -1,7 +1,6 @@
 import { Request, RequestHandler, Response } from 'express'
 import { param, validationResult } from 'express-validator'
-import { IUrl } from '../../api/v1/interfaces/url.interface'
-import Url from '../../api/v1/models/url.model'
+import { Urls } from '../../api/v1/models/url'
 
 export class AppController {
   public static root(req: Request, res: Response) {
@@ -21,20 +20,17 @@ export class AppController {
       return
     }
 
-    const updateIfFound = (url: IUrl | null) => {
-      return new Promise<IUrl>((resolve, reject) => {
-        if (url == null) {
-          reject(true)
-          return
-        }
+    try {
+      let url = await Urls.findOne({ identifier: req.params.id })
+      if (url) {
         url.hitCount += 1
-        resolve(url)
-      })
+        await url.save()
+        res.status(302).redirect(url.url)
+      } else {
+        res.sendStatus(404)
+      }
+    } catch (err) {
+      res.sendStatus(500)
     }
-
-    Url.findOne({ identifier: req.params.id })
-      .then((url) => updateIfFound(url))
-      .then((url) => res.status(302).redirect(url.url))
-      .catch((notFound) => res.sendStatus(notFound === true ? 404 : 500))
   }
 }

@@ -1,14 +1,14 @@
 import { Application } from 'express'
-import { Route } from '../common/models/route.model'
-import apiRoute from '../api/v1/routes/index.route'
-import appRoute from '../app/routes/index.route'
+import apiRoute from '../api/v1/routes/apiRoute'
+import appRoute from '../app/routes/appRoute'
+import { Route } from '../common/models'
 
 class Routes {
-  public static mount(_express: Application): Application {
+  public static mount(app: Application): Application {
     this.allRoutes().forEach((route) => {
-      _express.use(route.root, route.router)
+      app.use(route.root, route.router)
     })
-    return _express
+    return app
   }
 
   private static allRoutes(): Route[] {

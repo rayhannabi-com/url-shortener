@@ -1,6 +1,6 @@
-import { ApiController } from '../../../api/v1/controllers/index.controller'
-import { Route } from '../../../common/models/route.model'
-import urls from './urls/urls.routes'
+import { Route } from '../../../common/models'
+import { ApiController } from '../controllers/apiController'
+import urls from './urls/urlsRoutes'
 
 class ApiRoute extends Route {
   constructor() {
@@ -12,7 +12,7 @@ class ApiRoute extends Route {
     this.router.get('/', ApiController.getRoot)
   }
 
-  routesToMount() {
+  routesToMount(): Route[] {
     return [urls]
   }
 }

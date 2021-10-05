@@ -1,5 +1,5 @@
-import server from './server'
 import database from './db'
+import server from './server'
 
 class App {
   public start() {

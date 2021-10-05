@@ -1,5 +1,5 @@
-import { Route } from '../../../../common/models/route.model'
-import { UrlsController } from '../../controllers/urls/index.controller'
+import { Route } from '../../../../common/models'
+import { UrlsController } from '../../controllers/urls'
 
 class UrlsRoutes extends Route {
   constructor() {

@@ -1,7 +1,12 @@
 import express, { Router } from 'express'
-import { IRoute } from '../interfaces/route.interface'
 
-export class Route implements IRoute {
+interface AnyRoute {
+  root: string
+  router: Router
+  routesToMount(): AnyRoute[]
+}
+
+export class Route implements AnyRoute {
   root: string
   router: Router
 

@@ -1,13 +1,6 @@
 {
-  "watch": [
-    "."
-  ],
+  "watch": ["."],
   "ext": "ts, json",
-  "ignore": [
-    "src/**/*.spec.ts",
-    "node_modules",
-    "dist",
-    "build"
-  ],
+  "ignore": ["src/**/*.spec.ts", "node_modules", "dist", "build"],
   "exec": "./node_modules/.bin/tsc --pretty && node dist/index.js"
 }

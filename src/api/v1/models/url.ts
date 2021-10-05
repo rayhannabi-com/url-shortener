@@ -1,5 +1,14 @@
-import mongoose, { Schema } from 'mongoose'
-import { IUrl } from '../interfaces/url.interface'
+import mongoose, { Document, Schema } from 'mongoose'
+
+export interface Url {
+  identifier: string
+  url: string
+  shortUrl: string
+  createdAt: Date
+  hitCount: number
+}
+
+export interface UrlModel extends Url, Document {}
 
 const UrlSchema: Schema = new Schema({
   identifier: { type: String, required: true, unique: true },
@@ -16,6 +25,4 @@ UrlSchema.methods.toJSON = function () {
   return obj
 }
 
-const Url = mongoose.model<IUrl>('URL', UrlSchema)
-
-export default Url
+export const Urls = mongoose.model<UrlModel>('URL', UrlSchema)

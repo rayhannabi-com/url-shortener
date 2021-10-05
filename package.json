@@ -4,11 +4,12 @@
   "description": "A simple URL shortener written using Node.js, Express & TypeScript",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
+    "start": "node dist/index.js",
     "build": "tsc --pretty",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --config .prettierrc.json ./**/*.ts --write",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
